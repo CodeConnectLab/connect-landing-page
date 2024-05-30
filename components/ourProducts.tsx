@@ -1,38 +1,15 @@
-import { Button } from 'antd';
-
-
+import { Button } from "antd";
+import Card from "./ui/card";
+import { PhoneOutlined, ShoppingCartOutlined , WechatWorkOutlined} from '@ant-design/icons';
 const products = [
   {
     productName: "Connect-CRM",
     id: "connectCRM",
     icon: (
-      <svg
-        className="w-16 h-16 mb-4"
-        viewBox="0 0 64 64"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <rect
-          className="fill-current text-purple-600"
-          width="64"
-          height="64"
-          rx="32"
-        />
-        <g
-          strokeLinecap="square"
-          strokeWidth="2"
-          fill="none"
-          fillRule="evenodd"
-        >
-          <path
-            className="stroke-current text-purple-100"
-            d="M29 42h10.229a2 2 0 001.912-1.412l2.769-9A2 2 0 0042 29h-7v-4c0-2.373-1.251-3.494-2.764-3.86a1.006 1.006 0 00-1.236.979V26l-5 6"
-          />
-          <path
-            className="stroke-current text-purple-300"
-            d="M22 30h4v12h-4z"
-          />
-        </g>
-      </svg>
+      <div className="p-3 flex justify-center items-center rounded-full bg-purple-600">
+        <PhoneOutlined className="text-white" style={{fontSize:'28px'}}/>
+      </div>
+      
     ),
     description:
       "Connect-CRM is a advanced CRM system that helps you manage your customer relationships, and BOOST SALES with help of modern AI technology.",
@@ -41,36 +18,24 @@ const products = [
     productName: "Connect-MART",
     id: "connectMart",
     icon: (
-      <svg
-        className="w-16 h-16 mb-4"
-        viewBox="0 0 64 64"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle
-          className="fill-current text-purple-600"
-          cx="32"
-          cy="32"
-          r="32"
-        />
-        <path
-          className="stroke-current text-purple-100"
-          strokeWidth="2"
-          strokeLinecap="square"
-          d="M21 23h22v18H21z"
-          fill="none"
-          fillRule="evenodd"
-        />
-        <path
-          className="stroke-current text-purple-300"
-          d="M26 28h12M26 32h12M26 36h5"
-          strokeWidth="2"
-          strokeLinecap="square"
-        />
-      </svg>
+      <div className="p-3 flex justify-center items-center rounded-full bg-purple-600">
+        <ShoppingCartOutlined className="text-white" style={{fontSize:'28px'}}/>
+      </div>
     ),
     description:
       "Connect-MART is an easily customisable E-commerce platform which can help you scale your offline business by taking it online.",
-    //   Connect-MART is an easily customisable E-commerce platform which can help you scale your business by taking it online. Understand your customer's behaviors
+      //   Connect-MART is an easily customisable E-commerce platform which can help you scale your business by taking it online. Understand your customer's behaviors
+    },
+  {
+    productName: "Connect-ChatBots",
+    id: "connectChatBots",
+    icon: (
+      <div className="p-3 flex justify-center items-center rounded-full bg-purple-600">
+        <WechatWorkOutlined className="text-white" style={{fontSize:'28px'}}/>
+      </div>
+    ),
+    description:
+      "Our AI chatbots offer intelligent, 24/7 support to your customers. Trained specialy for your business, they help improve customer satisfaction and reduce response times",
   },
 ];
 
@@ -80,7 +45,7 @@ export default function OurProducts() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
           {/* Section header */}
-          <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
+          <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20"  data-aos="fade-up" data-aos-delay="200">
             <h2 className="h2 mb-4">Our Product Range.</h2>
             <p className="text-xl text-gray-400">
               We serve businesses with variety of products and services some of
@@ -96,18 +61,15 @@ export default function OurProducts() {
             {products?.map((product, index) => (
               <div
                 key={`${product}-${index}`}
-                className="relative flex flex-col items-center"
+                className="relative h-full flex flex-col items-center"
                 data-aos="fade-up"
                 data-aos-anchor="[data-aos-id-blocks]"
               >
-                {product.icon}
-                <h4 className="h4 mb-2">{product.productName}</h4>
-                <p className="text-lg text-gray-400 text-center">
-                  {product.description}
-                </p>
-                <Button type="primary" className=" ">
-                    <span className="text-gray-400">Get it for Free!</span>
-                </Button>
+                <Card
+                  description={product.description}
+                  icon={product.icon}
+                  title={product.productName}
+                />
               </div>
             ))}
           </div>
