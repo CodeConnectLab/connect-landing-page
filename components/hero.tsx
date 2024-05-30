@@ -1,5 +1,6 @@
 import VideoThumb from "@/public/images/Product-Hero-Image.png";
 import ModalVideo from "@/components/modal-video";
+import Button from "./ui/button";
 
 export default function Hero() {
   return (
@@ -47,22 +48,23 @@ export default function Hero() {
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16">
             <h1 className="h1 mb-4" data-aos="fade-up">
-            Revolutionize Your Business with Innovative Tech Products.
+              Revolutionize Your Business with Innovative Tech Products.
             </h1>
             <p
               className="text-xl text-gray-400 mb-8"
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              Empower your enterprise with cutting-edge technology from Code Connect Labs. From CRM software to AI chatbots, we provide tools that drive success.
+              Empower your enterprise with cutting-edge technology from Code
+              Connect Labs. From CRM software to AI chatbots, we provide tools
+              that drive success.
             </p>
             <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center">
               <div data-aos="fade-up" data-aos-delay="400">
                 <a
-                  className="btn text-white bg-purple-600 hover:bg-purple-700 w-full mb-4 sm:w-auto sm:mb-0"
                   href="#0"
                 >
-                  Start free trial
+                  <Button>Start free trial</Button>
                 </a>
               </div>
             </div>
