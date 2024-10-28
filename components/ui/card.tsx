@@ -7,6 +7,7 @@ type CardInterface = {
   description: string;
   buttonText?: string;
   link?: string;
+  newTab?: boolean;
 };
 export default function Card(props: CardInterface) {
   const {
@@ -15,6 +16,7 @@ export default function Card(props: CardInterface) {
     description,
     link,
     buttonText = "Get it for Free!",
+    newTab = false,
   } = props;
 
   return (
@@ -23,14 +25,14 @@ export default function Card(props: CardInterface) {
         <div className="text-center p-3 flex-auto justify-center">
           <div className="group-hover:animate-none animate-bounce w-12 h-12 flex items-center text-gray-600 fill-purple-600 mx-auto">
             {icon}
-          </div>
+          </div>{" "}
           <h2 className="text-xl font-bold py-4 text-gray-200">{title}</h2>
           <p className="font-bold text-sm text-gray-500 px-2">{description}</p>
         </div>
         <div className="p-2 mt-2 text-center space-x-1 md:block">
-          <Link href={link || "#"}>
+          <a href={link || "#"} target={newTab ? "_blank" : "_top"}>
             <Button>{buttonText}</Button>
-          </Link>
+          </a>
         </div>
       </div>
     </div>

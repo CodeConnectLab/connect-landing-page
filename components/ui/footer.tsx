@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 const resources = [
   {
     id: 1,
@@ -86,12 +87,21 @@ export default function Footer() {
             <div className="md:col-span-4 lg:col-span-5">
               <div className="mb-2">
                 {/* Logo */}
-                <Link href="/" className="inline-block" aria-label="Cruip">
-                  <img
-                    src="/images/Logo.png"
-                    alt="Code Connect"
-                    className="w-[90px]"
-                  />
+                <Link href="/" className="block" aria-label="Cruip">
+                  <div className="shrink-0 mr-4 flex gap-2 -ml-4 items-center">
+                    {/* Logo */}
+                    <Image
+                      src="/images/Logo.png"
+                      alt="Logo"
+                      width={90}
+                      height={90}
+                      className="rounded-full"
+                    />{" "}
+                    {/* Adjust width and height according to your logo size */}
+                    <span className="text-2xl font-bold mt-2">
+                      CODE CONNECT
+                    </span>
+                  </div>
                 </Link>
               </div>
               <div className="text-gray-400">
@@ -110,7 +120,7 @@ export default function Footer() {
                 <ul>
                   <li className="mb-1">
                     <Link
-                      href="/"
+                      href="https://connect-crm-landing-page.vercel.app/"
                       className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Connect-CRM
@@ -118,7 +128,7 @@ export default function Footer() {
                   </li>
                   <li className="mb-1">
                     <Link
-                      href="/"
+                      href="/mart"
                       className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Connect-Mart
@@ -126,7 +136,7 @@ export default function Footer() {
                   </li>
                   <li className="mb-1">
                     <Link
-                      href="/"
+                      href="/chatbot"
                       className="text-gray-400 hover:text-gray-100 transition duration-150 ease-in-out"
                     >
                       Connect-ChatBots

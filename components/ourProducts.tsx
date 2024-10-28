@@ -5,18 +5,29 @@ import {
   ShoppingCartOutlined,
   WechatWorkOutlined,
 } from "@ant-design/icons";
+import Image from "next/image";
+
 const products = [
   {
     productName: "Connect-CRM",
     id: "connectCRM",
     icon: (
-      <div className="p-3 flex justify-center items-center rounded-full bg-purple-600">
-        <PhoneOutlined className="text-white" style={{ fontSize: "28px" }} />
+      <div className="p-1 flex justify-center items-center rounded-full bg-white">
+        <Image
+          width={176}
+          height={32}
+          src={"/icons/logoConnectCrm.png"}
+          alt="crmLogo"
+          priority
+          style={{ width: "auto", height: "auto" }}
+        />
+        {/* <PhoneOutlined className="text-white" style={{ fontSize: "28px" }} /> */}
       </div>
     ),
     description:
       "Connect-CRM is a advanced CRM system that helps you manage your customer relationships, and BOOST SALES with help of modern AI technology.",
-    link: "/crm",
+    link: "https://connect-crm-landing-page.vercel.app/",
+    newTab: true,
   },
   {
     productName: "Connect-MART",
@@ -33,6 +44,7 @@ const products = [
       "Connect-MART is an easily customisable E-commerce platform which can help you scale your offline business by taking it online.",
     //   Connect-MART is an easily customisable E-commerce platform which can help you scale your business by taking it online. Understand your customer's behaviors
     link: "/mart",
+    newTab: false,
   },
   {
     productName: "Connect-ChatBots",
@@ -48,6 +60,7 @@ const products = [
     description:
       "Our AI chatbots offer intelligent, 24/7 support to your customers. Trained specialy for your business, they help improve customer satisfaction and reduce response times",
     link: "/chatbot",
+    newTab: false,
   },
 ];
 
@@ -86,6 +99,7 @@ export default function OurProducts() {
                   icon={product.icon}
                   title={product.productName}
                   link={product.link}
+                  newTab={product.newTab}
                 />
               </div>
             ))}
