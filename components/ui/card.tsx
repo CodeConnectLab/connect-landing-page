@@ -1,13 +1,21 @@
 import React from "react";
 import Button from "./button";
+import Link from "next/link";
 type CardInterface = {
   title: string;
   icon: React.ReactNode;
   description: string;
   buttonText?: string;
+  link?: string;
 };
 export default function Card(props: CardInterface) {
-  const { title, icon, description, buttonText = "Get it for Free!" } = props;
+  const {
+    title,
+    icon,
+    description,
+    link,
+    buttonText = "Get it for Free!",
+  } = props;
 
   return (
     <div className="group select-none h-full flex flex-col p-4 relative items-center justify-center bg-gray-800 border border-gray-800 shadow-lg rounded-2xl">
@@ -20,7 +28,9 @@ export default function Card(props: CardInterface) {
           <p className="font-bold text-sm text-gray-500 px-2">{description}</p>
         </div>
         <div className="p-2 mt-2 text-center space-x-1 md:block">
-          <Button >{buttonText}</Button>
+          <Link href={link || "#"}>
+            <Button>{buttonText}</Button>
+          </Link>
         </div>
       </div>
     </div>
