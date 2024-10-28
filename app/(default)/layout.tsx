@@ -1,39 +1,59 @@
-'use client'
+"use client";
 
-import { useEffect } from 'react'
+import { useEffect } from "react";
+// import "./css/style.css";
 
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+// import { Inter, Architects_Daughter } from "next/font/google";
 
-import PageIllustration from '@/components/page-illustration'
-import Footer from '@/components/ui/footer'
+import Header from "@/components/ui/header";
+import Banner from "@/components/banner";
+
+// const inter = Inter({
+//   subsets: ["latin"],
+//   variable: "--font-inter",
+//   display: "swap",
+// });
+
+// const architects_daughter = Architects_Daughter({
+//   subsets: ["latin"],
+//   variable: "--font-architects-daughter",
+//   weight: "400",
+//   display: "swap",
+// });
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+
+import PageIllustration from "@/components/page-illustration";
+import Footer from "@/components/ui/footer";
 
 export default function DefaultLayout({
   children,
 }: {
-  children: React.ReactNode
-}) {  
-
+  children: React.ReactNode;
+}) {
   useEffect(() => {
     AOS.init({
       once: false,
-      disable: 'phone',
+      disable: "phone",
       duration: 600,
-      easing: 'ease-out-sine',
-    })
-  })
+      easing: "ease-out-sine",
+    });
+  });
 
   return (
     <>
-      <main className="grow">
+      <div className="flex flex-col min-h-screen overflow-hidden">
+        <Header />
+        <main className="grow">
+          <PageIllustration />
 
-        <PageIllustration />
+          {children}
+        </main>
 
-        {children}
-
-      </main>
-
-      <Footer />
+        <Footer />
+        <Banner />
+      </div>
     </>
-  )
+  );
 }
